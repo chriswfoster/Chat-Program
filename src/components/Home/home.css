@@ -1,0 +1,24 @@
+.credBox{
+    width: 40vw;
+    height: 80vh;
+    background-color: tan;
+    left: 30vw;
+    top: 10vh;
+    position: absolute;
+}
+.credBoxButtons{
+width: 100%;
+
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: center;
+align-items: center;
+align-content: stretch;
+}
+.credBoxButtonsLink{
+    border-style: solid solid solid none;
+    border-color: black;
+    width: 33%;
+    font-size: 2em;
+}

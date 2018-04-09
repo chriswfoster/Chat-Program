@@ -11,6 +11,7 @@ routes.get("/api/login", (req, res) => {
   routes.post("/api/register", (req, res) => {
       const dbInstance = req.app.get("db")
       const bcrypt = req.app.get("bcrypt")
+      console.log(req.body)
       const { username, password } = req.body
       const saltRounds = 10
     

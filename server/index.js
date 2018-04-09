@@ -22,5 +22,5 @@ const massiveConnection = massive(process.env.connectionString) // tell massive 
 
 
 
-
+module.exports = routes
 app.listen(PORT, () => console.log(`You are now listening to ${PORT}FM`))
