@@ -1,2 +1,3 @@
-INSERT INTO users (user_name, user_password)
+INSERT INTO users (username, password)
 VALUES ($1, $2)
+RETURNING *;
