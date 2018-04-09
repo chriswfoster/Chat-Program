@@ -15,6 +15,14 @@ app.use(cors())
 app.set("bcrypt", bcrypt)
 app.use("/", routes)
 
+app.use(
+    session({
+      secret,
+      resave: false,
+      saveUninitialized: false
+    })
+  )
+
 const massiveConnection = massive(process.env.connectionString) // tell massive to make the connection
 .then(db => app.set("db", db)) // if connection exists, set 'db' to db
 .catch(console.log)
