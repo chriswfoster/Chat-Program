@@ -25,6 +25,10 @@ routes.get("/api/login", (req, res) => {
     }
   )
 
+  routes.post('/api/guestName', (req, res) => {
+      console.log(req.query)
+      req.session.user = req.query.name
+  })
 
 
 

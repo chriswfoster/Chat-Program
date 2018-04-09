@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 class Register extends Component {
     constructor(){
@@ -24,7 +25,9 @@ class Register extends Component {
             username,
             password
         })
-        .then(response => console.log(response))
+        .then(response => {
+            this.setState({redirect: <Redirect to="" />})
+        })
     }
 
 

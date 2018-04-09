@@ -3,6 +3,7 @@ import { Link, Route, Switch } from "react-router-dom"
 
 import Register from "./RegisterComponent/Register"
 import Login from "./LoginComponent/Login"
+import Guest from './GuestComponent/Guest'
 
 import './home.css'
 
@@ -17,6 +18,7 @@ class Home extends Component {
             <Link to="/register" className="credBoxButtonsLink">Register</Link>
           </div>
           <Switch>
+              <Route path="/" render={()=> <Guest />} />
             <Route path="/login" render={() => <Login />} />
             <Route path="/register" render={() => <Register />} />
           </Switch>
