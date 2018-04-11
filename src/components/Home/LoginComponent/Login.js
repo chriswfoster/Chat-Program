@@ -17,16 +17,17 @@ textHandler(property, val){
 }
 
 sendIt(username, password){
-    login(username, password)
+    
 }
 
   render() {
+      console.log(this.props)
       const {usernameText, passwordText} = this.state
     return (
       <div>
         <input placeholder="Username" onChange={(e) => this.textHandler("usernameText", e.target.value)}/>
         <input placeholder="Password" onChange={(e) => this.textHandler("passwordText", e.target.value)}/>
-        <button onClick={()=> this.sendIt(usernameText, passwordText)}> Click </button>
+        <button onClick={()=> this.props.login(usernameText, passwordText)}> Click </button>
       </div>
     )
   }

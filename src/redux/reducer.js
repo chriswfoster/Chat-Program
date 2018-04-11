@@ -47,7 +47,7 @@ export function register(username, password) {
       .then(response => {
         response.data.code
           ? alert("This username may be taken already!")
-          : console.log(response.data)
+          : response.data
       })
   }
 }
@@ -56,7 +56,7 @@ export function login(username, password) {
   return {
     type: REQ_LOGIN,
     payload: axios.get(`/api/login/?username=${username}&password=${password}`)
-    .then(response => console.log(response))
+    .then(response => response.data)
   }
 }
 
@@ -65,6 +65,6 @@ export function guestSignIn(username) {
     type: REQ_GUEST,
     payload: axios
       .post("/api/guestName?name=" + username)
-      .then(response => response.data)
+      .then(response => (response.data))
   }
 }
