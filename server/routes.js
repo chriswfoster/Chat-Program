@@ -28,19 +28,12 @@ routes.get("/api/login", (req, res) => {
 
 
     // var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/asdfasdf/-L9m_xZiDC8NRa_2N-RS').once('value').then(function(snapshot) {
-        console.log(snapshot)
-      var usernames = (snapshot.val() && snapshot.val().usernames) || 'Anonymous';
-console.log(usernames)
+    return firebase.database().ref('/users/'+username).once('value').then(function(snapshot) {
+        snapshot.val()
+      
     })
-        // snapshot.forEach(function(childSnapshot) {
-        //     var childKey = childSnapshot.key;
-        //     var childData = childSnapshot.val();
-        //     console.log(childData)
-        //   })
-    // })
-    //   .then(response => {
-    //       console.log(response)
+
+
         // if (response.length > 0) {
         //   var hash = response[0].password
         //   bcrypt.compare(password, hash).then(function(answer) {
@@ -65,12 +58,14 @@ routes.post("/api/register", (req, res) => {
   const { username, password } = req.body
   const saltRounds = 10
 
+  const test = 
+
   bcrypt.genSalt(saltRounds, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
       var newUserRef = firebase
         .database()
-        .ref("users/"+username)
-        .push({ username: username, password: hash, image_url: '' }, function(err) {
+        .ref("users/" + username)
+        .set(  { username: username, password: hash, image_url: '' }, function(err) {
           err ? res.status(200).json(err) : (req.session.user = username && res.status(200).json(username))
         })
       var newUserKey = newUserRef.key
