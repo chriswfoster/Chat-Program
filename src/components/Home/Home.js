@@ -18,7 +18,7 @@ class Home extends Component {
             <Link to="/register" className="credBoxButtonsLink">Register</Link>
           </div>
           <Switch>
-              <Route path="/" render={()=> <Guest />} />
+              <Route exact path="/" render={()=> <Guest />} />
             <Route path="/login" render={() => <Login />} />
             <Route path="/register" render={() => <Register />} />
           </Switch>

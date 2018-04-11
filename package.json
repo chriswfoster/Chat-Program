@@ -11,6 +11,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "firebase": "^4.12.1",
     "massive": "^4.7.1",
     "radium": "^0.24.0",
     "react": "^16.3.1",

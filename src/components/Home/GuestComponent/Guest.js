@@ -1,30 +1,42 @@
-import React, {Component} from 'react';
-import axios from 'axios'
+import React, { Component } from "react"
+import axios from "axios"
+import { guestSignIn } from "../../../redux/reducer"
+import { connect } from "react-redux"
 
 class Guest extends Component {
-constructor(){
-    super()
-    this.state={
-        guestNameText: ""
+  constructor(props) {
+    super(props)
+    this.state = {
+      guestNameText: ""
     }
-}
-guestNameHandler(val){
-this.setState({guestNameText: val})
-}
+  }
+  guestNameHandler(val) {
+    this.setState({ guestNameText: val })
+  }
 
-sendGuestName(username){
-axios.post('/api/guestName?name='+username)
-.then(response=> response.data)
-}
+  sendGuestName(username) {
+      this.props.guestSignIn(username)
+  }
 
-render() {
-return(
-<div>
-    <form onSubmit={()=> this.sendGuestName(this.state.guestNameText)}>
-    <input type="text" placeholder="Guest name" onChange={(e)=> this.guestNameHandler(e.target.value)} />
-    <input type="submit" />
-    </form>
-</div>
-)}
+  render(props) {
+      console.log(this.props)
+    return (
+      <div>
+        <div >
+          <input
+            type="text"
+            placeholder="Guest name"
+            onChange={e => this.guestNameHandler(e.target.value)}
+          />
+          <input type="submit" onClick={() => this.sendGuestName(this.state.guestNameText)} />
+       
+        <button onClick={()=> console.log(this.props)}>props</button>
+        </div>
+      </div>
+    )
+  }
 }
-export default Guest
+const mapStateToProps = state => state
+export default connect(mapStateToProps, {
+  guestSignIn
+})(Guest)
