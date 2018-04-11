@@ -5,12 +5,12 @@ const routes = express.Router()
 require("dotenv").config()
 
 routes.use(
-    session({
-      secret: process.env.secret,
-      resave: false,
-      saveUninitialized: false
-    })
-  )
+  session({
+    secret: process.env.secret,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 var firebaseconfig = {
   apiKey: process.env.firebasekey,
@@ -22,34 +22,34 @@ firebase.initializeApp(firebaseconfig)
 var database = firebase.database()
 
 routes.get("/api/login", (req, res) => {
-    const bcrypt = req.app.get("bcrypt")
-    const { username, password } = req.query
+  const bcrypt = req.app.get("bcrypt")
+  const { username, password } = req.query
 
-
-
-    // var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/'+username).once('value').then(function(snapshot) {
-        snapshot.val()
-      
+  // var userId = firebase.auth().currentUser.uid;
+  return firebase
+    .database()
+    .ref("/users/" + username)
+    .once("value")
+    .then(function(snapshot) {
+      if (snapshot.val().password){
+        const responded = snapshot.val()
+        const hash = responded.password
+        bcrypt.compare(password, hash).then(function(answer) {
+          if (answer == true) {
+             req.session.user = responded
+            res.status(200).send(responded)
+          } else if (answer == false) {
+            res.status(200).send("BADPW")
+          }
+        })
+      } else if (response.length < 1) {
+        res.status(200).send("UnknownUser")
+      }
+        })
+       
+    
     })
 
-
-        // if (response.length > 0) {
-        //   var hash = response[0].password
-        //   bcrypt.compare(password, hash).then(function(answer) {
-        //     if (answer == true) {
-        //       // req.session.user = response[0]
-        //       res.status(200).send(response[0])
-        //     } else if (answer == false) {
-        //       res.status(200).send("BADPW")
-        //     }
-        //   })
-        // } else if (response.length < 1) {
-        //   res.status(200).send("UnknownUser")
-        // }
-    //   })
-    //   .catch(err => console.log(err))
-})
 
 routes.post("/api/register", (req, res) => {
   const dbInstance = req.app.get("db")
@@ -58,15 +58,17 @@ routes.post("/api/register", (req, res) => {
   const { username, password } = req.body
   const saltRounds = 10
 
-  const test = 
-
-  bcrypt.genSalt(saltRounds, function(err, salt) {
+  const test = bcrypt.genSalt(saltRounds, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
       var newUserRef = firebase
         .database()
         .ref("users/" + username)
-        .set(  { username: username, password: hash, image_url: '' }, function(err) {
-          err ? res.status(200).json(err) : (req.session.user = username && res.status(200).json(username))
+        .set({ username: username, password: hash, image_url: "" }, function(
+          err
+        ) {
+          err
+            ? res.status(200).json(err)
+            : (req.session.user = username && res.status(200).json(username))
         })
       var newUserKey = newUserRef.key
       return firebase

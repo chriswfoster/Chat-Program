@@ -18,6 +18,7 @@ textHandler(property, val){
 
 sendIt(username, password){
     axios.get(`/api/login/?username=${username}&password=${password}`)
+    .then(response => console.log(response))
 }
 
   render() {
