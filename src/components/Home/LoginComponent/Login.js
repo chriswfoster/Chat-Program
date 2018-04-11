@@ -17,8 +17,7 @@ textHandler(property, val){
 }
 
 sendIt(username, password){
-    axios.get(`/api/login/?username=${username}&password=${password}`)
-    .then(response => console.log(response))
+    login(username, password)
 }
 
   render() {
@@ -32,4 +31,7 @@ sendIt(username, password){
     )
   }
 }
-export default Login
+const mapStateToProps = state => state
+export default connect(mapStateToProps, {
+  login
+})(Login)

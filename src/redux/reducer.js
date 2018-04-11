@@ -55,12 +55,8 @@ export function register(username, password) {
 export function login(username, password) {
   return {
     type: REQ_LOGIN,
-    payload: axios
-      .get("/api/login", {
-        username,
-        password
-      })
-      .then(response => response.data)
+    payload: axios.get(`/api/login/?username=${username}&password=${password}`)
+    .then(response => console.log(response))
   }
 }
 
