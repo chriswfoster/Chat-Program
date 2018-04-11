@@ -22,10 +22,40 @@ firebase.initializeApp(firebaseconfig)
 var database = firebase.database()
 
 routes.get("/api/login", (req, res) => {
-  req.app
-    .get("db")
-    .getItems()
-    .then(response => res.status(200).json(response))
+    const bcrypt = req.app.get("bcrypt")
+    const { username, password } = req.query
+
+
+
+    // var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/asdfasdf/-L9m_xZiDC8NRa_2N-RS').once('value').then(function(snapshot) {
+        console.log(snapshot)
+      var usernames = (snapshot.val() && snapshot.val().usernames) || 'Anonymous';
+console.log(usernames)
+    })
+        // snapshot.forEach(function(childSnapshot) {
+        //     var childKey = childSnapshot.key;
+        //     var childData = childSnapshot.val();
+        //     console.log(childData)
+        //   })
+    // })
+    //   .then(response => {
+    //       console.log(response)
+        // if (response.length > 0) {
+        //   var hash = response[0].password
+        //   bcrypt.compare(password, hash).then(function(answer) {
+        //     if (answer == true) {
+        //       // req.session.user = response[0]
+        //       res.status(200).send(response[0])
+        //     } else if (answer == false) {
+        //       res.status(200).send("BADPW")
+        //     }
+        //   })
+        // } else if (response.length < 1) {
+        //   res.status(200).send("UnknownUser")
+        // }
+    //   })
+    //   .catch(err => console.log(err))
 })
 
 routes.post("/api/register", (req, res) => {
@@ -39,7 +69,7 @@ routes.post("/api/register", (req, res) => {
     bcrypt.hash(password, salt, function(err, hash) {
       var newUserRef = firebase
         .database()
-        .ref("users/")
+        .ref("users/"+username)
         .push({ username: username, password: hash, image_url: '' }, function(err) {
           err ? res.status(200).json(err) : (req.session.user = username && res.status(200).json(username))
         })
@@ -47,7 +77,7 @@ routes.post("/api/register", (req, res) => {
       return firebase
         .database()
         .ref("usernames/" + username)
-        .set(newUserKey, function(err) {
+        .set(username, function(err) {
           err ? res.status(200).json(err) : null
         })
     })
