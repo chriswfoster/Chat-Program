@@ -1,42 +1,39 @@
-import React, {Component} from 'react';
-import './chat.css'
-
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import "./chat.css"
 
 class Chat extends Component {
-constructor(){
+  constructor() {
     super()
-    this.state={
-        privateChats: [],
-        publicChats: [],
-        groupChats: []
+    this.state = {
+      privateChats: [],
+      publicChats: []
     }
-}
+  }
 
-componentDidMount() {
+  componentDidMount() {}
 
-}
+  render() {
+    const privatechats = this.state.privateChats.map(item => item)
+    const publicchats = this.state.publicChats.map(item => item)
 
+    return (
+      <div>
+        <Link to="/profile"> Your Profile </Link>
+        <div className="chatsContainer">
+          <div className="chatItems">
+            <p>Your private/group chats</p>
+            {privatechats}
+            <button> Private message someone</button>
+          </div>
 
-render() {
-const privatechats = this.state.privateChats.map(item => item)
-const publicchats = this.state.publicChats.map(item => item)
-const groupchats = this.state.groupChats.map(item => item)
-return(
-<div>
-    <div>
-        {privatechats}
-        <button> Private message someone</button>
-        
-        </div>
-
-        <div>
+          <div className="chatItems">
+            <p>Public Chats</p>
             {publicchats}
-            </div>
-
-            <div>
-                {groupchats}
-                </div>
-</div>
-)}
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 export default Chat
