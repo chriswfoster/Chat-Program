@@ -86,9 +86,8 @@ routes.post("/api/guestName", (req, res) => {
   console.log(req.session.user)
 })
 
-routes.get("/api/getkey"),
-  (req, res) => {
+routes.get("/api/getkey", (req, res) => {
     res.status(200).json(firebaseconfig)
-  }
+  })
 
 module.exports = routes
