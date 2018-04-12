@@ -1,5 +1,5 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
+import React from "react"
+import { Redirect } from "react-router-dom"
 import axios from "axios"
 
 const REQ_REGISTER = "REQ_REGISTER"
@@ -38,8 +38,13 @@ export default function reducer(state = initialState, action) {
         isLoading: false,
         user: action.payload
       })
-      case REQ_KEY + "_PENDING":
-        return Object.assign({}, state, {})
+    case REQ_KEY + "_PENDING":
+      return Object.assign({}, state, { isLoading: true })
+    case REQ_KEY + "_FULFILLED":
+      return Object.assign({}, state, {
+        isLoading: false,
+        productKey: action.payload
+      })
     default:
       return state
   }
@@ -93,10 +98,9 @@ export function guestSignIn(username) {
   }
 }
 
-export function getProductKey(){
-    return {
-        type: REQ_KEY,
-        payload: axios.get('/api/getkey')
-        .then(response => response.data)
-    }
+export function getProductKey() {
+  return {
+    type: REQ_KEY,
+    payload: axios.get("/api/getkey").then(response => response.data)
+  }
 }
