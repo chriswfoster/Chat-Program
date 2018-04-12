@@ -6,6 +6,7 @@ import Guest from "./GuestComponent/Guest"
 
 import { Link, Route, Switch } from "react-router-dom"
 import { getProductKey } from "../../redux/reducer"
+import { Redirect } from "react-router-dom"
 import {connect} from 'react-redux'
 
 import "./home.css"
@@ -35,6 +36,7 @@ class Home extends Component {
             <Route path="/register" render={() => <Register />} />
           </Switch>
         </div>
+        {this.props.user.username ? <Redirect to="/chat" />: null}
       </div>
     )
   }

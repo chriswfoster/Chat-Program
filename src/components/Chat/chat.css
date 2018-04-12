@@ -1,25 +1,25 @@
-.chatsContainer{
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-    align-content: stretch;
-    height: 80vh;
-    width: 95vw;
-    left: 2.5vw;
-    position: absolute;
-    background-color: rgb(187, 187, 187);
+.chatsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+  height: 80vh;
+  width: 95vw;
+  left: 2.5vw;
+  position: absolute;
+  background-color: rgb(187, 187, 187);
 }
-.chatItems{
-    display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-    align-content: stretch;
-    height: 75vh;
-    background-color: tan;
-    width: 40vw;
-    overflow-y: scroll;
+.chatItems {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  height: 75vh;
+  width: 40vw;
+  background-color: tan;
+  overflow-y: scroll;
 }

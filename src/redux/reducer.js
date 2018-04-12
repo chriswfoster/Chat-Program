@@ -1,5 +1,3 @@
-import React from "react"
-import { Redirect } from "react-router-dom"
 import axios from "axios"
 
 const REQ_REGISTER = "REQ_REGISTER"
@@ -10,7 +8,6 @@ const REQ_KEY = "REQ_KEY"
 const initialState = {
   user: {},
   productKey: {},
-  redirect: null
 }
 
 export default function reducer(state = initialState, action) {
@@ -21,7 +18,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         isLoading: false,
         user: action.payload,
-        redirect: <Redirect to="/chat" />
       })
     case REQ_LOGIN + "_PENDING": //pending tag is applied by redux promise middleware
       return Object.assign({}, state, { isLoading: true })
@@ -29,7 +25,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         isLoading: false,
         user: action.payload,
-        redirect: <Redirect to="/chat" />
       })
     case REQ_GUEST + "_PENDING": //pending tag is applied by redux promise middleware
       return Object.assign({}, state, { isLoading: true })

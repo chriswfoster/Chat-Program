@@ -20,6 +20,7 @@ class Chat extends Component {
     return (
       <div>
         <Link to="/profile"> Your Profile </Link>
+        <Link to="/adminconsole"> Jump to admin console </Link>
         <div className="chatsContainer">
           <div className="chatItems">
             <p>Your private/group chats</p>
