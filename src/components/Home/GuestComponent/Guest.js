@@ -15,22 +15,24 @@ class Guest extends Component {
   }
 
   sendGuestName(username) {
-      this.props.guestSignIn(username)
+    this.props.guestSignIn(username)
   }
 
   render(props) {
-      console.log(this.props)
+    console.log(this.props)
     return (
       <div>
-        <div >
+        <div>
           <input
             type="text"
             placeholder="Guest name"
             onChange={e => this.guestNameHandler(e.target.value)}
           />
-          <input type="submit" onClick={() => this.sendGuestName(this.state.guestNameText)} />
-       
-        <button onClick={()=> console.log(this.props)}>props</button>
+          <input
+            type="submit"
+            onClick={() => this.sendGuestName(this.state.guestNameText)}
+          />
+          <button onClick={() => console.log(this.props)}>props</button>
         </div>
       </div>
     )

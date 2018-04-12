@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './chat.css'
 
+
 class Chat extends Component {
 constructor(){
     super()
@@ -12,7 +13,6 @@ constructor(){
 }
 
 componentDidMount() {
-
 }
 
 
