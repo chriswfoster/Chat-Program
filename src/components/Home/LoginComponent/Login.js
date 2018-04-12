@@ -3,7 +3,6 @@ import axios from "axios"
 import { connect } from "react-redux"
 import { login } from "../../../redux/reducer"
 
-
 class Login extends Component {
   constructor() {
     super()
@@ -16,7 +15,6 @@ class Login extends Component {
   textHandler(property, val) {
     this.setState({ [property]: val })
   }
-
 
   render() {
     console.log(this.props)
@@ -38,9 +36,9 @@ class Login extends Component {
             this.props.login(usernameText.toLowerCase(), passwordText)
           }
         >
-        Click
+          Click
         </button>
-          {this.props.redirect}
+        {this.props.redirect}
       </div>
     )
   }

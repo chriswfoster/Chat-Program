@@ -13,6 +13,7 @@ constructor(){
 }
 
 componentDidMount() {
+
 }
 
 
@@ -24,6 +25,8 @@ return(
 <div>
     <div>
         {privatechats}
+        <button> Private message someone</button>
+        
         </div>
 
         <div>
