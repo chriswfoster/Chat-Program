@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import  firebase from 'firebase'
+import {connect} from 'react-redux'
 import "./chat.css"
 
 class Chat extends Component {
@@ -11,7 +13,23 @@ class Chat extends Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const firebaseconfig = this.props.productKey
+    firebase.initializeApp(firebaseconfig)
+    const database = firebase.database()
+
+    const randomsRef = firebase.database().ref("usernames");
+    randomsRef.on("value", snapshot => {
+      let items = snapshot.val();
+      let newState = [];
+      for (let item in items) {
+        newState.push(item);
+      }
+      this.setState({
+        publicChats: newState
+      });
+    });
+  }
 
   render() {
     const privatechats = this.state.privateChats.map(item => item)
@@ -37,4 +55,7 @@ class Chat extends Component {
     )
   }
 }
-export default Chat
+const mapStateToProps = state => state
+export default connect(mapStateToProps, {
+
+})(Chat)

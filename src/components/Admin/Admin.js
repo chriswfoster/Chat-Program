@@ -24,11 +24,11 @@ class Admin extends Component {
             const firebaseconfig = this.props.productKey
             firebase.initializeApp(firebaseconfig)
             const database = firebase.database()
-            const newTableRef = firebase
+            firebase
             .database()
             .ref("randomChats/" )
-            .set(
-              { test: "testerrrrrr"},
+            .push(
+              { test: "testereserrr"},
               function(err) {
                 if (err) {
                    alert(err)
