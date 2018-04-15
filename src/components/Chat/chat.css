@@ -23,3 +23,9 @@
   background-color: tan;
   overflow-y: scroll;
 }
+.chatbuttons{
+  cursor: pointer;
+  margin-top: 1vh;
+  padding: 1vh;
+  border-radius: 10px;
+}

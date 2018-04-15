@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import ImageGallery from "react-image-gallery"
-import firebase from "./firebase/firebase";
+import firebase from "../../firebaseconfig";
 
 import { getProductKey } from "../../redux/reducer"
 
@@ -21,12 +21,10 @@ class Admin extends Component {
         }
 
         createRandomChat(){
-            const firebaseconfig = this.props.productKey
-            firebase.initializeApp(firebaseconfig)
-            const database = firebase.database()
+          
             firebase
             .database()
-            .ref("randomChats/" )
+            .ref("publicChats/" )
             .push(
               { test: "testereserrr"},
               function(err) {
