@@ -19,8 +19,8 @@ class Admin extends Component {
           this.props.getProductKey()
         }
 
-        createRandomChate(){
-            
+        createRandomChat(){
+
         }
 
   render() {
