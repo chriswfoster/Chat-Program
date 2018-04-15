@@ -29,9 +29,23 @@ class Chat extends Component {
     });
   }
 
+  startNewChat(){
+    firebase
+    .database()
+    .ref("privateChats/" + this.props.user.username )
+    .push(
+      { test: "testereserrr"},
+      function(err) {
+        if (err) {
+           alert(err)
+          }
+      }
+    )
+  }
+
   render() {
-    const privatechats = this.state.privateChats.map((item, ind) => <p>item.item</p>)
-    const publicchats = this.state.publicChats.map((item, ind) => <button className="chatbuttons">Random Chat {ind+1} </button>)
+    const privatechats = this.state.privateChats.map((item, ind) => <p key={ind}>item.item</p>)
+    const publicchats = this.state.publicChats.map((item, ind) => <button key={ind} className="chatbuttons">Random Chat {ind+1} </button>)
 console.log(this.state)
     return (
       <div>
@@ -40,15 +54,18 @@ console.log(this.state)
         <div className="chatsContainer">
           <div className="chatItems">
             <p>Your private/group chats</p>
+            <button onClick={()=> this.startNewChat()}> CREATE NEW CHAT </button>
             {privatechats}
-            <button> Private message someone</button>
+         
           </div>
 
           <div className="chatItems">
             <p>Public Chats</p>
             {publicchats}
           </div>
+
         </div>
+        
       </div>
     )
   }
