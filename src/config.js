@@ -13,3 +13,5 @@ import * as firebase from "firebase";
   export const provider = new firebase.auth.GoogleAuthProvider();
   export const facebookProvider = new firebase.auth.FacebookAuthProvider();
   export const auth = firebase.auth();
+
+  test
