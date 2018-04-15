@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import ImageGallery from "react-image-gallery"
+import firebase from 'firebase'
 
 import { getProductKey } from "../../redux/reducer"
 
@@ -20,20 +21,20 @@ class Admin extends Component {
         }
 
         createRandomChat(){
-            const firebaseconfig = this.props
+            const firebaseconfig = this.props.productKey
+            firebase.initializeApp(firebaseconfig)
+            const database = firebase.database()
             const newTableRef = firebase
             .database()
-            // .ref("users/" + username)
-            // .set(
-            //   { username: username, password: hash, image_url: image_url },
-            //   function(err) {
-            //     err
-            //       ? res.status(200).json(err)
-            //       : (req.session.user =
-            //           { username, password: hash, image_url } &&
-            //           res.status(200).json({ username, password: hash, image_url }))
-            //   }
-            // )
+            .ref("randomChats/" )
+            .set(
+              { test: "testerrrrrr"},
+              function(err) {
+                if (err) {
+                   alert(err)
+                  }
+              }
+            )
         }
 
   render() {
@@ -42,7 +43,7 @@ class Admin extends Component {
     
     return (
       <div style={{ width: "100vw" }}>
-        <button>Add random public chat</button>
+        <button onClick={()=> this.createRandomChat()}>Add random public chat</button>
 
         <div style={{ width: "70vw" }} className="Carousel">
           
