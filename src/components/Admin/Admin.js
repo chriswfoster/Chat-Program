@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import ImageGallery from "react-image-gallery"
-import firebase from 'firebase'
+import firebase from "./firebase/firebase";
 
 import { getProductKey } from "../../redux/reducer"
 
