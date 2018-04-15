@@ -20,7 +20,20 @@ class Admin extends Component {
         }
 
         createRandomChat(){
-
+            const {firebase} = this.props
+            const newTableRef = firebase
+            .database()
+            .ref("users/" + username)
+            .set(
+              { username: username, password: hash, image_url: image_url },
+              function(err) {
+                err
+                  ? res.status(200).json(err)
+                  : (req.session.user =
+                      { username, password: hash, image_url } &&
+                      res.status(200).json({ username, password: hash, image_url }))
+              }
+            )
         }
 
   render() {
