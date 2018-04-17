@@ -6,8 +6,12 @@ const REQ_GUEST = "REQ_GUEST"
 const REQ_KEY = "REQ_KEY"
 
 const initialState = {
-  user: {},
-  productKey: {},
+  user: {
+    username: "chriswfTEST",
+    image_url:
+      "https://cdn.theatlantic.com/assets/media/img/photo/2018/02/superb-owl-sunday-ii/s12_652845457/main_900.jpg"
+  },
+  productKey: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -17,14 +21,14 @@ export default function reducer(state = initialState, action) {
     case REQ_REGISTER + "_FULFILLED":
       return Object.assign({}, state, {
         isLoading: false,
-        user: action.payload,
+        user: action.payload
       })
     case REQ_LOGIN + "_PENDING": //pending tag is applied by redux promise middleware
       return Object.assign({}, state, { isLoading: true })
     case REQ_LOGIN + "_FULFILLED":
       return Object.assign({}, state, {
         isLoading: false,
-        user: action.payload,
+        user: action.payload
       })
     case REQ_GUEST + "_PENDING": //pending tag is applied by redux promise middleware
       return Object.assign({}, state, { isLoading: true })
