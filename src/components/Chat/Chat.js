@@ -2,7 +2,9 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import firebase from "../../firebaseconfig"
 import { connect } from "react-redux"
+import PublicChat from './PublicChat/PublicChat'
 import "./chat.css"
+
 
 class Chat extends Component {
   constructor() {
@@ -14,18 +16,6 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    const randomsRef = firebase.database().ref("publicChats")
-    randomsRef.on("value", snapshot => {
-      let items = snapshot.val()
-      console.log(items)
-      let newState = []
-      for (let item in items) {
-        newState.push({ item: items[item].test })
-      }
-      this.setState({
-        publicChats: newState
-      })
-    })
     const privateChats = firebase.database().ref("privateChats")
     privateChats.on("value", snapshot => {
       let items = snapshot.val()
@@ -99,18 +89,14 @@ class Chat extends Component {
   }
 
   render() {
-    console.log(this.state)
+ 
     const privatechats = this.state.privateChats.map((item, ind) => (
       <button key={ind} className="chatbuttons">
         <p>{item.title}</p>
         <p>{item.key}</p>
       </button>
     ))
-    const publicchats = this.state.publicChats.map((item, ind) => (
-      <button key={ind} className="chatbuttons">
-        Random Chat {ind + 1}
-      </button>
-    ))
+  
 
     return (
       <div>
@@ -125,7 +111,7 @@ class Chat extends Component {
 
           <div className="chatItems">
             <p>Public Chats</p>
-            {publicchats}
+            <PublicChat />
           </div>
         </div>
       </div>
