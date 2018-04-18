@@ -109,8 +109,7 @@ class Chat extends Component {
             {privatechats}
           </div>
 
-          <div className="chatItems">
-            <p>Public Chats</p>
+          <div >
             <PublicChat />
           </div>
         </div>

@@ -32,9 +32,10 @@ render() {
         </button>
       ))
 return(
-<div>
-    {publicchats}
-</div>
+  <div className="chatItems">
+            <p>Public Chats</p>
+            {publicchats}
+          </div>
 )}
 }
 const mapStateToProps = state => state
