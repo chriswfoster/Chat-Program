@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
+import firebase from "../../../firebaseconfig"
+import {userCheck} from '../ChatFunctions'
 
 class PrivateChat extends Component {
 constructor(){
     super()
     this.state = {
-
+        privateChats: []
     }
 }
 componentDidMount() {
@@ -27,9 +29,20 @@ componentDidMount() {
 
 
 render() {
+
+    const privatechats = this.state.privateChats.map((item, ind) => (
+        <button key={ind} className="chatbuttons">
+          <p>{item.title}</p>
+          <p>{item.key}</p>
+        </button>
+      ))
+
 return(
-<div>
-</div>
+<div className="chatItems">
+            <p>Your private/group chats</p>
+            <button onClick={() => userCheck(this.props.user.username)}> CREATE NEW CHAT </button>
+            {privatechats}
+          </div>
 )}
 }
 const mapStateToProps = state => state
