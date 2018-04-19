@@ -43,8 +43,7 @@ class PrivateChat extends Component {
       <div className="chatItems">
         <p>Your private/group chats</p>
         <button onClick={() => userCheck(this.props.user.username)}>
-          {" "}
-          CREATE NEW CHAT{" "}
+          CREATE NEW CHAT
         </button>
         {privatechats}
       </div>

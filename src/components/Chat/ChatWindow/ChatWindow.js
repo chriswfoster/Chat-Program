@@ -31,12 +31,9 @@ class ChatWindow extends Component {
         }
       }
       
-      setTimeout(function (){
-         elmnt.scrollIntoView()
-      }, 50)
       this.setState({
           chatMessages: privateState
-        }) 
+        }, () => elmnt.scrollIntoView()) 
       
     })
   }
