@@ -1,24 +1,90 @@
-.credBox{
-    width: 40vw;
-    height: 80vh;
-    background-color: tan;
-    left: 30vw;
-    top: 10vh;
-    position: absolute;
+.credBox {
+  width: 40vw;
+  height: 80vh;
+  background-color: tan;
+  left: 30vw;
+  top: 10vh;
+  position: absolute;
 }
-.credBoxButtons{
-width: 100%;
+.credBoxButtons {
+  width: 100%;
 
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: center;
-align-content: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
-.credBoxButtonsLink{
-    border-style: solid solid solid none;
-    border-color: black;
-    width: 33%;
-    font-size: 2em;
+.credBoxButtonsLink {
+  border-style: solid solid solid none;
+  border-color: black;
+  width: 33%;
+  font-size: 1vw;
+}
+
+@media (max-width: 768px) {
+  .credBox {
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    top: 0vh;
+
+  }
+}
+
+/* ////////////////// REACT TABS CSS BELOW: ////////////////// */
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 3vw;
+}
+
+.react-tabs__tab--selected {
+  background: tan;
+  border-color: black;
+  color: black;
+  border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  box-shadow: 0 0 5px hsl(208, 99%, 50%);
+  border-color: hsl(208, 99%, 50%);
+  outline: none;
+}
+
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
 }
