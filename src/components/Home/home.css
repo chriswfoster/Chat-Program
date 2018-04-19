@@ -35,6 +35,8 @@
   align-items: center;
   align-content: stretch;
   border-style: solid;
+  border-color: #00aeef;
+  border-radius: 12px;
   margin-top: 15%;
   height: 50%;
   width: 75%;
@@ -44,7 +46,13 @@
 .signinItemsFlex input {
   margin-bottom: 3vh;
 }
-
+.signinItemsFlex button{
+    border-style: solid;
+    border-radius: 12px;
+    border-color: #00aeef;
+    border-width: 2px;
+    background-color: rgba(0, 0, 0, 0);
+}
 @media (max-width: 768px) {
   .credBox {
     width: 100vw;

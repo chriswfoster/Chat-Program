@@ -29,10 +29,9 @@ class Guest extends Component {
             placeholder="Guest name"
             onChange={e => this.guestNameHandler(e.target.value)}
           />
-          <input
-            type="submit"
+          <button
             onClick={() => this.sendGuestName(this.state.guestNameText)}
-          />
+          >Submit </button>
         </div>
       </div>
     )

@@ -38,7 +38,7 @@ class Login extends Component {
               this.props.login(usernameText.toLowerCase(), passwordText)
             }
           >
-            Click
+            Submit
           </button>
           {this.props.redirect}
         </div>
