@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import PublicChat from "./PublicChat/PublicChat"
 import PrivateChat from "./PrivateChat/PrivateChat"
 import ChatWindow from "./ChatWindow/ChatWindow"
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 
 import "./chat.css"
 
@@ -26,8 +27,8 @@ class Chat extends Component {
     })
   }
 
-  closeChatWindow(){
-    this.setState({startChat: false})
+  closeChatWindow() {
+    this.setState({ startChat: false })
   }
 
   render() {
@@ -43,14 +44,27 @@ class Chat extends Component {
             chatType={this.state.chatType}
           />
         ) : (
-          <div className="chatsContainer">
-            <div>
-              <PrivateChat chatActivator={this.chatActivator} />
-            </div>
 
-            <div>
-              <PublicChat chatActivator={this.chatActivator} />
-            </div>
+          <div>
+            <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+              <TabList>
+                <Tab>Private Chats</Tab>
+                <Tab>Public Chats</Tab>
+                <Tab>Friends</Tab>
+              </TabList>
+              <TabPanel>
+                {" "}
+                <PrivateChat chatActivator={this.chatActivator} />
+              </TabPanel>
+              <TabPanel>
+                <PublicChat chatActivator={this.chatActivator} />
+              </TabPanel>
+              <TabPanel>
+                <p>Nothing here.</p>
+              </TabPanel>
+            </Tabs>
+
+           
           </div>
         )}
       </div>
