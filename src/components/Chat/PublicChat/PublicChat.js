@@ -27,7 +27,7 @@ constructor(){
 
 render() {
     const publicchats = this.state.publicChats.map((item, ind) => (
-        <button key={ind} className="chatbuttons">
+        <button key={ind} className="chatbuttons" onClick={() => this.props.chatActivator("publicChats", item.name)}>
           {item.name}
         </button>
       ))

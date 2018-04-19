@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux'
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import firebase from "../../../firebaseconfig"
-import {userCheck} from '../ChatFunctions'
+import { userCheck } from "../ChatFunctions"
 
 class PrivateChat extends Component {
-constructor(){
+  constructor() {
     super()
     this.state = {
-        privateChats: []
+      privateChats: []
     }
-}
-componentDidMount() {
+  }
+  componentDidMount() {
     const privateChats = firebase.database().ref("privateChats")
     privateChats.on("value", snapshot => {
       let items = snapshot.val()
@@ -27,23 +27,29 @@ componentDidMount() {
     })
   }
 
-
-render() {
-
+  render() {
     const privatechats = this.state.privateChats.map((item, ind) => (
-        <button key={ind} className="chatbuttons">
-          <p>{item.title}</p>
-          <p>{item.key}</p>
-        </button>
-      ))
+      <button
+        key={ind}
+        className="chatbuttons"
+        onClick={() => this.props.chatActivator("privateChats", item.key)}
+      >
+        <p>{item.title}</p>
+        <p>{item.key}</p>
+      </button>
+    ))
 
-return(
-<div className="chatItems">
-            <p>Your private/group chats</p>
-            <button onClick={() => userCheck(this.props.user.username)}> CREATE NEW CHAT </button>
-            {privatechats}
-          </div>
-)}
+    return (
+      <div className="chatItems">
+        <p>Your private/group chats</p>
+        <button onClick={() => userCheck(this.props.user.username)}>
+          {" "}
+          CREATE NEW CHAT{" "}
+        </button>
+        {privatechats}
+      </div>
+    )
+  }
 }
 const mapStateToProps = state => state
 export default connect(mapStateToProps, {})(PrivateChat)
