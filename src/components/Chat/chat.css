@@ -17,6 +17,14 @@
   height: 100vh;
 }
 
+.chatBox{
+  width: 100vw;
+  height: 100vh;
+  background-color: #4b494f;
+ 
+  position: absolute;
+}
+
 .chatItems {
   display: flex;
   flex-direction: column;
@@ -67,4 +75,13 @@ right: 1vh;
 top: 1vh;
 position: absolute;
 cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .chatBox {
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    top: 0vh;
+  }
 }

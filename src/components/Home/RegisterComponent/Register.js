@@ -25,6 +25,16 @@ class Register extends Component {
     this.setState({ imageText: val })
   }
 
+  register(usernameText, passwordText, imageText) {
+    this.props.register(usernameText.toLowerCase(), passwordText, imageText)
+    let input3 = document.getElementById("input3")
+    let input4 = document.getElementById("input4")
+    let input5 = document.getElementById("input5")
+    input3.value=""
+    input4.value=""
+    input5.value=""
+  }
+
   render() {
     console.log("props:", this.props)
     console.log(this.state)
@@ -35,16 +45,19 @@ class Register extends Component {
         <div className="signinItemsFlex">
           <p> Register</p>
           <input
+            id="input3"
             type="text"
             placeholder="username"
             onChange={e => this.handleUsernameText(e.target.value)}
           />
           <input
+            id="input4"
             type="password"
             placeholder="password"
             onChange={e => this.handlePasswordText(e.target.value)}
           />
           <input
+            id="input5"
             type="text"
             placeholder="ImageUrl (optional)"
             onChange={e => this.handleImageText(e.target.value)}
@@ -52,11 +65,7 @@ class Register extends Component {
           <button
             type="submit"
             onClick={() =>
-              this.props.register(
-                usernameText.toLowerCase(),
-                passwordText,
-                imageText
-              )
+              this.props.register(usernameText, passwordText, imageText)
             }
           >
             Submit

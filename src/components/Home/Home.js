@@ -48,7 +48,7 @@ class Home extends Component {
             <Route path="/register" render={() => <Register />} />
           </Switch> */}
         </div>
-        {this.props.user.username ? <Redirect to="/chat" />: null}
+        {/* {this.props.user.username ? <Redirect to="/chat" />: null} */}
       </div>
     )
   }

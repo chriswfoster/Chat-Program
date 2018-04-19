@@ -45,7 +45,7 @@ class Chat extends Component {
           />
         ) : (
 
-          <div style={{width: "100vw"}}>
+          <div className="chatBox">
             <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
               <TabList>
                 <Tab>Private Chats</Tab>
