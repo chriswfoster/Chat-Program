@@ -86,6 +86,7 @@ class ChatWindow extends Component {
       ))
     return (
       <div className="chatBoxWindowMain">
+      <button className="chatClosingX" onClick={()=> this.props.closeChatWindow()}/>
         <div className="chatBoxWindowSub">{chatBody}
         <div id="content">
   </div>

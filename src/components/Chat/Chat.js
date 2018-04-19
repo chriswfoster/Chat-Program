@@ -16,6 +16,7 @@ class Chat extends Component {
       chatType: "privateChats/-LAFNPldT1iC0IpNnbvv/messages"
     }
     this.chatActivator = this.chatActivator.bind(this)
+    this.closeChatWindow = this.closeChatWindow.bind(this)
   }
 
   chatActivator(chattype, chatid) {
@@ -23,6 +24,10 @@ class Chat extends Component {
       chatType: `${chattype}/${chatid}/messages`,
       startChat: true
     })
+  }
+
+  closeChatWindow(){
+    this.setState({startChat: false})
   }
 
   render() {
@@ -33,6 +38,7 @@ class Chat extends Component {
 
         {this.state.startChat ? (
           <ChatWindow
+            closeChatWindow={this.closeChatWindow}
             chatId={this.state.chatIDToStart}
             chatType={this.state.chatType}
           />
