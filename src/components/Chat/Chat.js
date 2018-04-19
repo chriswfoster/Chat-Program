@@ -45,7 +45,7 @@ class Chat extends Component {
           />
         ) : (
 
-          <div>
+          <div style={{width: "100vw"}}>
             <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
               <TabList>
                 <Tab>Private Chats</Tab>
@@ -53,7 +53,6 @@ class Chat extends Component {
                 <Tab>Friends</Tab>
               </TabList>
               <TabPanel>
-                {" "}
                 <PrivateChat chatActivator={this.chatActivator} />
               </TabPanel>
               <TabPanel>

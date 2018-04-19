@@ -11,6 +11,12 @@
   position: absolute;
   background-color: rgb(187, 187, 187);
 }
+.chatItemsMain{
+  width: 100%;
+  position: relative;
+  height: 100vh;
+}
+
 .chatItems {
   display: flex;
   flex-direction: column;
@@ -19,9 +25,11 @@
   align-items: center;
   align-content: stretch;
   height: 75vh;
-  width: 40vw;
-  background-color: tan;
+  width: 75%;
+  background-color: #4b494f;
   overflow-y: scroll;
+  position: relative;
+  left: 12.5%;
 }
 .chatbuttons{
   cursor: pointer;

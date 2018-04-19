@@ -32,9 +32,11 @@ render() {
         </button>
       ))
 return(
+  <div className="chatItemsMain">
   <div className="chatItems">
             <p>Public Chats</p>
             {publicchats}
+          </div>
           </div>
 )}
 }
