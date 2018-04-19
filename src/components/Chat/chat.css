@@ -29,3 +29,19 @@
   padding: 1vh;
   border-radius: 10px;
 }
+.chatBoxWindowMain{
+  height: 95vh;
+  width: 95vw;
+  left: 2.5vw;
+  top: 2.5vh;
+  position: absolute;
+  background-color: grey;
+}
+.chatBoxWindowSub{
+  width: 95%;
+  height: 95%;
+  color: rgb(136, 136, 255);
+  left: 2.5%;
+  top: 2.5%;
+
+}

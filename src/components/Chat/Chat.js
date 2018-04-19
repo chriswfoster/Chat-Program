@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import PublicChat from './PublicChat/PublicChat'
 import PrivateChat from './PrivateChat/PrivateChat'
+import ChatWindow from './ChatWindow/ChatWindow'
 
 import "./chat.css"
 
@@ -11,22 +12,23 @@ class Chat extends Component {
   constructor() {
     super()
     this.state = {
-      privateChats: [],
-      publicChats: []
+     startChat: true,
+     chatIDToStart: "",
+     chatType: "privateChats/-LAFNPldT1iC0IpNnbvv"
     }
   }
 
 
 
   render() {
- 
-  
 
     return (
       <div>
         <Link to="/profile"> Your Profile </Link>
         <Link to="/adminconsole"> Jump to admin console </Link>
-        <div className="chatsContainer">
+        
+          {this.state.startChat ? <ChatWindow chatId={this.state.chatIDToStart} chatType={this.state.chatType} /> : 
+          <div className="chatsContainer">
         <div>
           <PrivateChat />
           </div>
@@ -34,7 +36,7 @@ class Chat extends Component {
           <div >
             <PublicChat />
           </div>
-          </div>
+          </div>}
         </div>
       
     )
