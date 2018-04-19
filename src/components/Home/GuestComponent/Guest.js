@@ -21,8 +21,9 @@ class Guest extends Component {
   render(props) {
     console.log(this.props)
     return (
-      <div>
-        <div>
+      <div className="signinMain">
+        <div className="signinItemsFlex">
+          <p>Guest Signin </p>
           <input
             type="text"
             placeholder="Guest name"
@@ -32,7 +33,6 @@ class Guest extends Component {
             type="submit"
             onClick={() => this.sendGuestName(this.state.guestNameText)}
           />
-          <button onClick={() => console.log(this.props)}>props</button>
         </div>
       </div>
     )

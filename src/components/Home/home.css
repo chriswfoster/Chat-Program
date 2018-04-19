@@ -1,7 +1,7 @@
 .credBox {
   width: 40vw;
   height: 80vh;
-  background-color: tan;
+  background-color: #4b494f;
   left: 30vw;
   top: 10vh;
   position: absolute;
@@ -22,6 +22,28 @@
   width: 33%;
   font-size: 1vw;
 }
+.signinMain {
+  width: 100%;
+  position: relative;
+  height: 100vh;
+}
+.signinItemsFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  border-style: solid;
+  margin-top: 15%;
+  height: 50%;
+  width: 75%;
+  left: 12.5%;
+  position: absolute;
+}
+.signinItemsFlex input {
+  margin-bottom: 3vh;
+}
 
 @media (max-width: 768px) {
   .credBox {
@@ -29,14 +51,13 @@
     height: 100vh;
     left: 0vw;
     top: 0vh;
-
   }
 }
 
 /* ////////////////// REACT TABS CSS BELOW: ////////////////// */
 
 .react-tabs__tab-list {
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid #00aeef;
   margin: 0 0 10px;
   padding: 0;
 }
@@ -51,12 +72,13 @@
   padding: 6px 12px;
   cursor: pointer;
   font-size: 3vw;
+  color: rgb(167, 167, 167);
 }
 
 .react-tabs__tab--selected {
-  background: tan;
-  border-color: black;
-  color: black;
+  background: #4b494f;
+  border-color: #00aeef;
+  color: #fafafa;
   border-radius: 5px 5px 0 0;
 }
 

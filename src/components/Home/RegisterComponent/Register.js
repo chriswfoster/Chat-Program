@@ -31,9 +31,9 @@ class Register extends Component {
 
     const { passwordText, usernameText, imageText } = this.state
     return (
-      <div>
-        Register
-        <div>
+      <div className="signinMain">
+        <div className="signinItemsFlex">
+          <p> Register</p>
           <input
             type="text"
             placeholder="username"

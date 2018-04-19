@@ -20,25 +20,28 @@ class Login extends Component {
     console.log(this.props)
     const { usernameText, passwordText } = this.state
     return (
-      <div>
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={e => this.textHandler("usernameText", e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={e => this.textHandler("passwordText", e.target.value)}
-        />
-        <button
-          onClick={() =>
-            this.props.login(usernameText.toLowerCase(), passwordText)
-          }
-        >
-          Click
-        </button>
-        {this.props.redirect}
+      <div className="signinMain">
+        <div className="signinItemsFlex">
+          <p>Login Below</p>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={e => this.textHandler("usernameText", e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={e => this.textHandler("passwordText", e.target.value)}
+          />
+          <button
+            onClick={() =>
+              this.props.login(usernameText.toLowerCase(), passwordText)
+            }
+          >
+            Click
+          </button>
+          {this.props.redirect}
+        </div>
       </div>
     )
   }
