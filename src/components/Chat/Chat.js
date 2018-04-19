@@ -14,7 +14,7 @@ class Chat extends Component {
     this.state = {
      startChat: true,
      chatIDToStart: "",
-     chatType: "privateChats/-LAFNPldT1iC0IpNnbvv"
+     chatType: "privateChats/-LAFNPldT1iC0IpNnbvv/messages"
     }
   }
 

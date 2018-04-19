@@ -38,10 +38,14 @@
   background-color: grey;
 }
 .chatBoxWindowSub{
+  text-align: bottom;
+  text-align: left;
+  overflow-y: scroll;
   width: 95%;
   height: 95%;
-  color: rgb(136, 136, 255);
+  color: rgb(255, 255, 255);
   left: 2.5%;
   top: 2.5%;
+  padding: 1vw;
 
 }
