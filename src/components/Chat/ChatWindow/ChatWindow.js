@@ -71,8 +71,8 @@ class ChatWindow extends Component {
     console.log("props:", this.props, "state:", this.state)
     console.log(moment())
     const chatBody = this.state.chatMessages
-      .map(item => (
-        <div>
+      .map((item, ind )=> (
+        <div key={ind}>
           <p>
             {item.user}
             {" {"}
