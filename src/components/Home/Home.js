@@ -32,23 +32,9 @@ class Home extends Component {
   <TabPanel><Login /></TabPanel>
   <TabPanel><Register /></TabPanel>
 </Tabs>
-            {/* <Link to="/" className="credBoxButtonsLink">
-              Guest
-            </Link>
-            <Link to="/login" className="credBoxButtonsLink">
-              Login
-            </Link>
-            <Link to="/register" className="credBoxButtonsLink">
-              Register
-            </Link>
-          </div>
-          <Switch>
-            <Route exact path="/" render={() => <Guest />} />
-            <Route path="/login" render={() => <Login />} />
-            <Route path="/register" render={() => <Register />} />
-          </Switch> */}
+      
         </div>
-        {/* {this.props.user.username ? <Redirect to="/chat" />: null} */}
+        {this.props.user.username ? <Redirect to="/chat" />: null}
       </div>
     )
   }

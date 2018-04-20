@@ -3,7 +3,9 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import PublicChat from "./PublicChat/PublicChat"
 import PrivateChat from "./PrivateChat/PrivateChat"
+import Profile from "./Profile/Profile"
 import ChatWindow from "./ChatWindow/ChatWindow"
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 
 import "./chat.css"
@@ -33,8 +35,7 @@ class Chat extends Component {
 
   render() {
     return (
-      <div>
-        <Link to="/profile"> Your Profile </Link>
+      <div style={{ backgroundColor: "#4b494f" }}>
         <Link to="/adminconsole"> Jump to admin console </Link>
 
         {this.state.startChat ? (
@@ -44,13 +45,13 @@ class Chat extends Component {
             chatType={this.state.chatType}
           />
         ) : (
-
           <div className="chatBox">
             <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
               <TabList>
                 <Tab>Private Chats</Tab>
                 <Tab>Public Chats</Tab>
                 <Tab>Friends</Tab>
+                <Tab>Profile</Tab>
               </TabList>
               <TabPanel>
                 <PrivateChat chatActivator={this.chatActivator} />
@@ -61,9 +62,10 @@ class Chat extends Component {
               <TabPanel>
                 <p>Nothing here.</p>
               </TabPanel>
+              <TabPanel>
+                <Profile />
+              </TabPanel>
             </Tabs>
-
-           
           </div>
         )}
       </div>

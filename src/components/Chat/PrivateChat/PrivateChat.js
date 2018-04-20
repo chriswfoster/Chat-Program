@@ -34,18 +34,20 @@ class PrivateChat extends Component {
         className="chatbuttons"
         onClick={() => this.props.chatActivator("privateChats", item.key)}
       >
-        <p>{item.title}</p>
         <p>{item.key}</p>
       </button>
     ))
 
     return (
-      <div className="chatItems">
+        
+      <div className="chatItemsMain">
         <p>Your private/group chats</p>
         <button onClick={() => userCheck(this.props.user.username)}>
           CREATE NEW CHAT
         </button>
+        <div className="chatItems">
         {privatechats}
+        </div>
       </div>
     )
   }

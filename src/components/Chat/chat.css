@@ -11,17 +11,17 @@
   position: absolute;
   background-color: rgb(187, 187, 187);
 }
-.chatItemsMain{
+.chatItemsMain {
   width: 100%;
   position: relative;
-  height: 100vh;
+  height: 90vh;
 }
 
-.chatBox{
+.chatBox {
   width: 100vw;
   height: 100vh;
   background-color: #4b494f;
- 
+
   position: absolute;
 }
 
@@ -38,14 +38,20 @@
   overflow-y: scroll;
   position: relative;
   left: 12.5%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  border-color: #00aeef;
 }
-.chatbuttons{
+.chatbuttons {
   cursor: pointer;
+  border-radius: 12px;
+  height: auto;
+  font-size: .75em;
+  width: 80%;
   margin-top: 1vh;
-  padding: 1vh;
-  border-radius: 10px;
 }
-.chatBoxWindowMain{
+.chatBoxWindowMain {
   height: 95vh;
   width: 95vw;
   left: 2.5vw;
@@ -53,7 +59,7 @@
   position: absolute;
   background-color: grey;
 }
-.chatBoxWindowSub{
+.chatBoxWindowSub {
   text-align: bottom;
   text-align: left;
   overflow-y: scroll;
@@ -64,17 +70,17 @@
   top: 2.5%;
   padding: 1vw;
 }
-.chatClosingX{
-background-image: url('./Addins/xforclosing.png');
-background-size: 100% 100%;
-height: 3vh;
-width: 3vh;
-background-color: rgba(0, 0, 0, 0);
-border: none;
-right: 1vh;
-top: 1vh;
-position: absolute;
-cursor: pointer;
+.chatClosingX {
+  background-image: url("./Addins/xforclosing.png");
+  background-size: 100% 100%;
+  height: 3vh;
+  width: 3vh;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  right: 1vh;
+  top: 1vh;
+  position: absolute;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

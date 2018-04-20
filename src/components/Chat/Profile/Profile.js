@@ -6,6 +6,7 @@ class Profile extends Component {
 render() {
 return(
 <div>
+    User profile here.
 </div>
 )}
 }
