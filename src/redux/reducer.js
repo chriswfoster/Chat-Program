@@ -80,8 +80,7 @@ export function login(username, password) {
           alert("I believe this is a bad password")
         } else if (response.data === "UNKNOWNUSER") {
           alert("We're unable to locate the user in the database")
-        }
-        {
+        } else {
           return response.data
         }
       })
@@ -103,4 +102,3 @@ export function getProductKey() {
     payload: axios.get("/api/getkey").then(response => response.data)
   }
 }
-

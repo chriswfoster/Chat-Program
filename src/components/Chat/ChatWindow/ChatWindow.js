@@ -48,7 +48,8 @@ class ChatWindow extends Component {
     date = date.substring(0, date.length - 3)
     e.preventDefault()
     e.target.reset()
-    const sendMessage = firebase
+    //I removed const sendmessage = (from below)
+    firebase
       .database()
       .ref(`${this.props.chatType}`)
       .update(

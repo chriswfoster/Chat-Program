@@ -5,7 +5,6 @@ import Login from "./LoginComponent/Login"
 import Guest from "./GuestComponent/Guest"
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import { Link, Route, Switch } from "react-router-dom"
 import { getProductKey } from "../../redux/reducer"
 import { Redirect } from "react-router-dom"
 import {connect} from 'react-redux'

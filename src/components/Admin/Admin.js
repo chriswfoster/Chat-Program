@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import ImageGallery from "react-image-gallery"
+// import ImageGallery from "react-image-gallery"
 import firebase from "../../firebaseconfig"
 import PublicChat from '../Chat/PublicChat/PublicChat'
 import { nouns, adjectives, animals, colorWords } from "./WordData"
